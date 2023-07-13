@@ -1,0 +1,30 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: content
+spec:
+  selector:
+    matchLabels:
+      app: content
+  replicas: 2
+  template: 
+    metadata:
+      labels:
+        app: content
+    spec:
+      containers:
+      - name: content
+        image: content:latest
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: number
+  labels:
+    app: number
+spec:
+  containers:
+  - name: number
+    image: number:latest

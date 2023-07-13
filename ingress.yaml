@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: basic-routing
+spec:
+  rules:
+    - host: finonex.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: contnet
+                port: 
+                  number: 80
+          - path: /number
+            pathType: Prefix
+            backend:
+              service:
+                name: contnet
+                port: 
+                  number: 80
+          - path: /number
+            pathType: Prefix
+            backend:
+              service:
+                name: number
+                port: 
+                  number: 80
